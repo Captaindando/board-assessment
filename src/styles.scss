@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Ondo';
+  src: url('./fonts/Ondo-regular.woff') format('woff');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Ondo';
+  src: url('./fonts/Ondo-bold.woff') format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Ondo';
+  src: url('./fonts/FONTSPRINGDEMO-OndoBoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+$ShoppingBasketIconUrl: url('./images/icons/ShoppingIcon.svg');
+$ButtonGradient: linear-gradient(to right, #6542F4 , #F976FF, #B50098);
+$boardCol1: #6542F4;
+$boardCol2: #F976FF;
+$boardCol3: #B50098;
+
+
+h1, h2, h3, h4, h5, h6, p, span{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+p{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 1.5px;
+}
+
+.App {
+  display: block;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-logo {
+  width: 150px;
+  pointer-events: none;
+}
+.ScrollerWrapper{
+  display:block;
+  width: 99.8%;
+  left: 0.1%;
+  &.HeroScroller{
+    .Scroller{
+      transform: rotate(-2deg);
+    }
+  }
+  .Scroller{
+    background-image: linear-gradient(to bottom, 
+      #FFFFFF10, #D9D9D905), url('./images/GravelPattern7.png');
+      width: 100%;
+    overflow: hidden;
+    border: solid #ffffff33;
+    border-width: 1px 0 1px 0;
+    padding: 15px 0;
+    backdrop-filter: blur(50px);
+    
+    
+    .ScrollerInner{
+      opacity: 1;
+      height: 36px;
+      width: 100%;
+      background: url('./images/textSlider.svg');
+      background-repeat:repeat-x;
+      background-size: 100vw;
+      animation-name: scrollerAnimate;
+      animation-duration: 16s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+
+    }
+  }
+}
+
+@keyframes scrollerAnimate {
+  from {background-position: 0vw}
+  to {background-position: 100vw}
+}
+
+
+
+.HeaderDisplay{
+  font-family: 'Ondo';
+  text-transform: uppercase;
+  line-height: 110%;
+  font-weight: 800;
+  font-size: 66px;
+  color: #fff;  
+}
+
+/* Shared Components */
+
+a.button{
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Ondo', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px 50px;
+  font-weight: 600;
+  font-size: 20px;
+  transform: skew(-20deg);
+  border-width: 2px;
+  border-style: solid;
+  border-image: $ButtonGradient 1 1 1;
+  margin-right: 20px;
+  align-items: center;
+  justify-content: center;
+  &.small{
+    padding: 15px 20px;
+  }
+  &.fullwidth{
+    width: 100%;
+  }
+  span{
+    display: block;
+    transform: skew(20deg);
+    background: $ButtonGradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+  &.solid{
+    background: $ButtonGradient;
+    color: #fff;
+    border-image: none;
+    border-width: 0;
+    span{
+      background: none;
+      -webkit-background-clip:border-box;
+      -webkit-text-fill-color: white;
+    }
+    
+  }
+  
+  
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+
+
+
+/* Hero Section */
+
+.navBar {
+  display: flex;
+  flex-direction: row; 
+  width: 100%;
+  align-items: center; 
+  color: white;
+  justify-content: space-between;
+  position: absolute;
+  max-width: 1280px;
+  top: 40px;
+  nav{
+    display: flex;
+    align-items: center; 
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    a{
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      &.active{
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
+
+  .ShoppingBasketIcon{
+    background-image: $ShoppingBasketIconUrl;
+    width: 20px;
+    height: 22px;
+  }
+  
+}
+
+.heroSectionWrapper{
+  width: 100%;
+  background-image: url('./images/HeroBG.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  padding: 230px 0 80px 0;
+}
+
+.HeroWrapper{
+  width: 100%;
+  max-width: 1280px;
+  .HeroContentWrapper{
+    width: 50%;
+    justify-self: left;
+    font-family: 'Ondo', sans-serif;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #fff;
+    
+    .HeroCopy{
+      font-family: 'Lato', sans-serif;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 185%;
+      letter-spacing: 2px;
+      margin: 15px 0;
+    }
+  }
+  .heroButtons{
+    margin: 15px 0 50px 0;
+  }
+  .statsWrapper{
+    width: 40%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    .stat{
+      padding: 5px;
+      h3{
+        font-family: 'Ondo', sans-serif;
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      p{
+        font-family: 'Lato', sans-serif;
+        font-size: 19px;
+        font-weight: normal;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+
+/*  Game Carousel  */
+
+.carouselWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0;
+  .carouselHeader{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .HeaderDisplay{
+      font-weight: 800;
+    }
+    p{
+      max-width: 518px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 29px;
+      margin-bottom: 80px;
+      margin-top: 15px;
+    }
+  }
+  .gameSliderWrapper{
+    width: 100%;
+    max-width: 1480px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between
+  }
+  .GameSlide{
+    height: 354px;
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    &:nth-child(2n){
+      height: 450px;
+      margin-top: 0px;
+      width: 50%;
+      z-index: 20;
+      img{
+        
+        width: 100%;
+        object-fit: contain;
+        border: none;
+      }
+    }
+    img{
+      box-sizing: border-box;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid $boardCol1;
+    }
+  }
+  .carouselButtonWrapper{
+    margin-top: 60px;
+  }
+}
+
+.gradientText{
+  background: $ButtonGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Filters */
+
+.filtersWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .filtersGameArrayWrapper{
+    display: flex;
+    max-width: 1280px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-shrink: 1;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    .gameTile{
+      flex: 1 1 26%;
+      padding: 25px;
+      margin: 10px;
+      box-sizing: border-box;
+      background-image: linear-gradient(to bottom, 
+      #FFFFFF10, #D9D9D905);
+      border: 1px solid #FFFFFF20;
+      border-radius: 10px;
+      .gameTitle{
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 27px;
+        text-align: left;
+        margin-top: 15px;
+      }
+      .gameScreenshot{
+        height: 265px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #FFFFFF20;
+      }
+      .authorBlock{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 0;
+        .authorImg{
+          width: 53px;
+          height: 53px;
+          border-radius: 100px;
+        }
+        .authorInfoCol{
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          font-family: 'Lato', sans-serif;
+          padding: 0 10px;
+          align-items: start;
+          justify-content: center;
+          h4{
+            font-weight: 500;
+            line-height: 20px;
+            font-size: 18px
+          }
+          h5{
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 11px;
+          }
+        }
+        
+      }
+      .authorButton{
+        background: $ButtonGradient;
+        color: #fff;
+        display: flex;
+        font-family: 'Lato', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 15px 0px;
+        font-weight: 800;
+        font-size: 18px;
+        transform: skew(-20deg);
+        border-image: $ButtonGradient 1 1 1;
+        margin: 15px;
+        align-items: center;
+        justify-content: center;
+        span{
+          display: block;
+          transform: skew(20deg);          
+        } 
+      }
+    }
+  }
+
+  .filtersButtons{
+    
+    
+    a{
+      padding: 20px 30px;
+      box-sizing: border-box;
+      
+      span{
+        font-family: 'Lato', sans-serif;
+          color: #fff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #ffffff;
+        font-weight: 500;
+        
+      }
+      &.solid{
+        background: $ButtonGradient;
+        color: #fff;
+        
+        span{
+          font-weight: 800;
+        }
+      }
+    }
+  }
+  
+}
+
+
+/* Testimonials */
+
+.testimonialsRowWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .testimonialsWrapper{
+    display: flex;
+    flex-direction: row;
+    max-width: 1280px;
+    overflow: visible;
+    .testimonialWrapper{
+      margin: 20px;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.062745098), rgba(217, 217, 217, 0.0196078431)), url(http://localhost:3000/static/media/GravelPattern7.679421f….png);
+      width: 100%;
+      overflow: visible;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 60px 50px 50px 50px;
+      -webkit-backdrop-filter: blur(50px);
+      backdrop-filter: blur(50px);
+      margin-top: 80px;
+      .rating{
+        display: flex;
+        align-items: start;
+        width: 100%;
+        img{
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .testimonial{
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        text-align: left;
+        line-height: 30px;
+        margin-top: 15px;
+      }
+      .divider{
+        background: linear-gradient(to right, #FFFFFF , #FFFFFF00);
+        height: 1px;
+        width: 100%;
+        margin: 30px 0;
+      }
+      .userBlock{
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content: space-between;
+        .verificationBadge{
+          justify-self: end;
+        }
+        .user{
+          display: flex;
+          align-items:center;
+          flex-direction: row;
+          .userImg{
+            width: 62px;
+            height: 62px;
+            border-radius: 100%;
+          }
+          .userInfoCol{
+            text-align: left;
+            margin-left: 15px;
+            h4{
+              font-family: 'Lato', sans-serif;
+              font-size: 21px;
+              font-weight: 500;
+              line-height: 23px;
+              letter-spacing: 0.035em;
+              text-align: left;
+              margin-bottom: 8px;
+            }
+            h5{
+              font-family: 'Lato', sans-serif;
+              font-size: 12px;
+              font-weight: 500;
+              line-height: 13px;
+              letter-spacing: 0.035em;
+              text-align: left;
+            }
+          }
+        }
+        
+      }
+
+    }
+  }
+    .testimonialWrapper::before{
+      content: "";
+      background-image: url('./images/Quotes.svg');
+      width: 100px;
+      height: 80px;
+      position: absolute;
+      top: -40px;
+      right: 50px;
+      z-index: 20;
+    }
+  .SliderButtonWrapper{
+    margin: 50px 0;
+    display: flex;
+    width: 162px;
+    align-items: center;
+    justify-content: space-between;
+    .SliderButton{
+      width: 17px;
+      height: 17px;
+      &.active{
+        width: 29px;
+        height: 29px;
+      }
+    }
+    
+  }
+}
+
+
+/* Footer */
+
+.footerContainer{
+  color: #fff;
+  background-image: url("./images/footerBG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  .NavigationWrapper{
+    display: flex;
+    flex-direction: row;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    max-width: 1280px;
+    .footerCol{
+      width: 20%;
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+      ul{
+        list-style: none;
+        text-align: left;
+        h5{
+          font-family: 'Lato', sans-serif;
+          text-transform: uppercase;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 20px;
+          letter-spacing: 0.04em;
+          text-align: left;
+        }
+        li{
+          font-family: 'Lato';
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 20px;
+          letter-spacing: 0.04em;
+          text-align: left;
+          margin: 30px 0;
+        }
+      }
+    }
+    .Col1{
+      width: 25%;
+      .footerLogo{
+        width: 195px;
+        height: 45px;
+        margin-bottom: 30px;
+      }
+      .footerDescription{
+        font-family: 'Lato', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+        letter-spacing: 0.04em;
+        text-align: left;
+
+      }
+    }
+    .Col2{
+      
+    }
+    .Col3{
+      
+    }
+    .Col4{
+      
+    }
+    .Col5{
+      
+    }
+ 
+  }
+  .copyright{
+    width: 100%;
+    max-width: 1280px;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    margin: 80px 0;
+  }
+}

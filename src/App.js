@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import './styles.scss';
+
+// Site Rows
+import Scroller from './components/Scroller';
+import Hero from "./components/HeroSection";
+import GameCarousel from './components/GameCarousel';
+import Filters from './components/Filters';
+import TestimonialCarousel from './components/TestimonialCarousel';
+import Footer from './components/Footer';
+
+
+
+// NB make sure semantic HTML is used. 
+// go through accessibility checklist
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Hero />
+      <Scroller class="ScrollerWrapper HeroScroller" />
+      <GameCarousel />
+      <Filters />
+      <Scroller class="ScrollerWrapper" />
+      <TestimonialCarousel />
+      <Footer />
     </div>
   );
 }
